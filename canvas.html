@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PWA URIEL ISAI</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="w3.css">
+        <link rel="manifest" href="manifiesto.json">
+    </head>
+    <body>
+        <div class="w3-row">
+            <div class="w3-col s12 w3-amber w3-center"><p>Figuras</p></div>        
+        </div>
+
+        <div class="w3-row">
+            <div class="w3-col s3 w3-green w3-center">
+                <p>
+                    ax + by = c (Ec. 1)
+                </p> 
+                <p>
+                   dx + ey = f (Ec. 2)
+                </p>
+                <div>
+                    <p> a: <input type="text" id="a" size="1" value="">
+                        b: <input type="text" id="b" size="1" value="">
+                        c: <input type="text" id="c" size="1" value="">
+                   </p>  
+               
+
+    
+                    <p> d: <input type="text" id="d" size="1" value="">
+                        e: <input type="text" id="e" size="1" value="">
+                        f: <input type="text" id="f" size="1" value="">
+                   </p>  
+                  <p>
+                  Intervalo [x1,x2] en X para Ec. 1: 
+                  </p>
+                  <p>
+                    x1: <input type="text"  id="x1" size="1" value=""> x2: <input id="x2" type="text" size="1" value="">  
+                  </p>
+                  <p>
+                    Intervalo [x3,x4] en X para Ec. 2: 
+                    </p>
+                    <p>
+                        x3: <input type="text" size="1" id="x3" value=""> x4: <input type="text" size="1" id="x4" value=""> 
+                      </p>
+                      <button type="button" onclick="s2el(3)">Calcular x,y </button>    
+                      <button type="button" onclick="limpiar()">Limpiar </button>    
+                   
+                      <br />
+                      <div id="demo"  class="w3-col s3 w3-green w3-center">
+                              <div id="demo1" ></div>
+                              <div id="demo2"></div>
+                              <br>
+                              <div id="demo3" >
+                                  <p > x :</p>
+                              </div>  
+                                  <br>
+                             <div id="demo4">
+                                <p > y :</p>
+                             </div>
+                    
+                                     
+                      </div>
+                </div>         
+            </div>
+            <div class="w3-col s9 w3-white w3-center">
+                <canvas 
+                    id="canvas"
+                    width="400"
+                    height="400"
+                    style="border:1px solid #000000"
+                >
+                </canvas>
+            </div>
+        </div>
+        <script src="canvas.js"></script>
+
+        <script>
+            if('serviceWorker' in navigator){
+                navigator.serviceWorker.register('sw.js')
+                .then(
+                    function(registration){
+                        alert('Reg. satisfactorio del sw');
+                        console.log('Reg. satisfactorio del sw en el ámbito: ',
+                                    registration.scope);
+                    }
+                ).catch(
+                    function(err){
+                        alert('El SW no se registró');
+                        console.log('El SW no se registró', err);
+                    }
+                );
+            }
+        </script>
+    </body>
+</html>
